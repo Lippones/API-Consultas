@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista</title>
+</head>
+
+<body>
+    <form action="/search" method="get">
+        <input type="search" name="search" id="search" placeholder="Digite o emial ou CPF do paciente">
+        <button>Pesquisar</button>
+    </form>
+    <h1>Consultas: </h1>
+    <% appos.forEach(appo=>{%>
+        <h1>Consulta:<%= appo.description%>
+        </h1>
+
+        <h3>Paciente:<%= appo.name%>
+        </h3>
+
+        <h3>Email: <%= appo.email%>
+        </h3>
+        <h3>CPF: <%= appo.cpf%>
+                <% if(!appo.finished){ %>
+                    <form action="/finish" method="post">
+                        <input type="text" hidden name="id" value="<%=appo._id%>">
+                        <button>Finalizar</button>
+                    </form>
+                    <%} %>
+                        <%})%>
+</body>
+
+</html>

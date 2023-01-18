@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta</title>
+</head>
+
+<body>
+    <h1>Consulta:<%= appo.description%>
+    </h1>
+
+    <h3>Paciente:<%= appo.name%>
+    </h3>
+
+    <h3>Email: <%= appo.email%>
+    </h3>
+    <h3>CPF: <%= appo.cpf%>
+    </h3>
+    <% if(!appo.finished){ %>
+        <form action="/finish" method="post">
+            <input type="text" hidden name="id" value="<%=appo._id%>">
+            <button>Finalizar</button>
+        </form>
+        <%} %>
+</body>
+
+</html>
